@@ -53,26 +53,40 @@
           <div class="text-center text-muted mb-4">
             <small>Or sign in with credentials</small>
           </div>
-          <form #f="ngForm">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
             <div class="form-group mb-3">
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
                   <span class="input-group-text"
-                    ><i class="ni ni-email-83"></i
+                    ><i class="ni ni-single-02"></i
                   ></span>
                 </div>
                 <input
                   class="form-control"
-                  placeholder="Email"
-                  name="email"
-                  type="email"
-                  ngModel
-                  required
-                  #email="ngModel"
+                  placeholder="Username"
+                  type="text"
+                  formControlName="username"
+                  [ngClass]="{
+                    'is-invalid': submitted && f['username'].errors
+                  }"
                 />
+                <div
+                  *ngIf="submitted && f['username'].errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f['username'].errors['required']">
+                    Username is required
+                  </div>
+                  <div *ngIf="f['username'].errors['minlength']">
+                    Username must be at least 6 characters
+                  </div>
+                  <div *ngIf="f['username'].errors['maxlength']">
+                    Username must not exceed 20 characters
+                  </div>
+                </div>
               </div>
-              <app-errors [errors]="email"></app-errors>
             </div>
+
             <div class="form-group">
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
@@ -82,15 +96,28 @@
                 </div>
                 <input
                   class="form-control"
-                  name="pwd"
                   placeholder="Password"
                   type="password"
-                  ngModel
-                  minlength="5"
-                  #pwd="ngModel"
+                  formControlName="password"
+                  [ngClass]="{
+                    'is-invalid': submitted && f['password'].errors
+                  }"
                 />
+                <div
+                  *ngIf="submitted && f['password'].errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="f['password'].errors['required']">
+                    Password is required
+                  </div>
+                  <div *ngIf="f['password'].errors['minlength']">
+                    Password must be at least 6 characters
+                  </div>
+                  <div *ngIf="f['password'].errors['maxlength']">
+                    Username must not exceed 40 characters
+                  </div>
+                </div>
               </div>
-              <app-errors [errors]="pwd"></app-errors>
             </div>
             <div
               class="custom-control custom-control-alternative custom-checkbox"
@@ -105,11 +132,7 @@
               </label>
             </div>
             <div class="text-center">
-              <button
-                type="button"
-                class="btn btn-primary my-4"
-                [disabled]="f.invalid"
-              >
+              <button type="submit" class="btn btn-primary my-4">
                 Sign in
               </button>
             </div>

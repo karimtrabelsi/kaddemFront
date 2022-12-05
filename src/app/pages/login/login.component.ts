@@ -6,6 +6,9 @@ import {
   FormGroup,
   Validators,
 } from "@angular/forms";
+import { AuthService } from "src/app/services/auth.service";
+import { StorageService } from "src/app/services/storage.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-login",
@@ -17,10 +20,21 @@ export class LoginComponent implements OnInit, OnDestroy {
     username: new FormControl(""),
     password: new FormControl(""),
   });
+  isLoggedIn = false;
+  isLoginFailed = false;
+  errorMessage = "";
+  roles: string[] = [];
   submitted = false;
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(
+    private formBuilder: FormBuilder,
+    private authService: AuthService,
+    private storageService: StorageService,
+    private router: Router
+  ) {}
 
   ngOnInit() {
+    console.log(this.storageService.isLoggedIn());
+
     this.form = this.formBuilder.group({
       username: [
         "",
@@ -40,6 +54,11 @@ export class LoginComponent implements OnInit, OnDestroy {
         ],
       ],
     });
+    if (this.storageService.isLoggedIn()) {
+      this.isLoggedIn = true;
+      this.roles = this.storageService.getUser().roles;
+      this.router.navigate(["/dashboard"]);
+    }
   }
   ngOnDestroy() {}
 
@@ -53,13 +72,30 @@ export class LoginComponent implements OnInit, OnDestroy {
     if (this.form.invalid) {
       return;
     }
-    console.log(this.submitted);
+    const username = this.form.get("username").value;
+    const password = this.form.get("password").value;
 
-    console.log(JSON.stringify(this.form.value, null, 2));
+    this.authService.login(username, password).subscribe({
+      next: (data) => {
+        this.storageService.saveUser(data);
+
+        this.isLoginFailed = false;
+        this.isLoggedIn = true;
+        this.roles = this.storageService.getUser().roles;
+        this.reloadPage();
+      },
+      error: (err) => {
+        this.errorMessage = err.error.message;
+        this.isLoginFailed = true;
+      },
+    });
   }
 
   onReset(): void {
     this.submitted = false;
     this.form.reset();
+  }
+  reloadPage(): void {
+    window.location.reload();
   }
 }

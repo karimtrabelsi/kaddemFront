@@ -15,6 +15,12 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { MatDialogModule } from "@angular/material/dialog";
 import { UsersComponent } from "app/pages/users/users.component";
 import { EditComponent } from "app/pages/users/edit/edit.component";
+import { UniversityComponent } from "app/pages/university/university.component";
+import { ContractComponent } from "app/pages/contract/contract.component";
+import { DepartmentComponent } from "app/pages/department/department.component";
+import { CourseComponent } from "app/pages/course/course.component";
+import { TrainingComponent } from "app/pages/training/training.component";
+import { ReclamationComponent } from "app/pages/reclamation/reclamation.component";
 // import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
@@ -35,6 +41,12 @@ import { EditComponent } from "app/pages/users/edit/edit.component";
     MapsComponent,
     UsersComponent,
     EditComponent,
+    UniversityComponent,
+    ContractComponent,
+    DepartmentComponent,
+    CourseComponent,
+    TrainingComponent,
+    ReclamationComponent,
   ],
 })
 export class AdminLayoutModule {}

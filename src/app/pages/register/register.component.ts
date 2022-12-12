@@ -1,8 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { Router } from "@angular/router";
-import { AuthService } from "src/app/services/auth.service";
-import { StorageService } from "src/app/services/storage.service";
+import { AuthService } from "app/services/auth.service";
 
 @Component({
   selector: "app-register",
@@ -26,10 +25,7 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = "";
 
-  constructor(
-    private authService: AuthService,
-    private router: Router
-  ) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {}
 

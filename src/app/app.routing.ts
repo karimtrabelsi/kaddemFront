@@ -19,7 +19,7 @@ const routes: Routes = [
       {
         path: "",
         loadChildren: () =>
-          import("src/app/layouts/admin-layout/admin-layout.module").then(
+          import("app/layouts/admin-layout/admin-layout.module").then(
             (m) => m.AdminLayoutModule
           ),
       },
@@ -32,7 +32,7 @@ const routes: Routes = [
       {
         path: "",
         loadChildren: () =>
-          import("src/app/layouts/auth-layout/auth-layout.module").then(
+          import("app/layouts/auth-layout/auth-layout.module").then(
             (m) => m.AuthLayoutModule
           ),
       },

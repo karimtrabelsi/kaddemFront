@@ -6,8 +6,8 @@ import {
   PathLocationStrategy,
 } from "@angular/common";
 import { Router } from "@angular/router";
-import { StorageService } from "src/app/services/storage.service";
-import { AuthService } from "src/app/services/auth.service";
+import { StorageService } from "app/services/storage.service";
+import { AuthService } from "app/services/auth.service";
 
 @Component({
   selector: "app-navbar",

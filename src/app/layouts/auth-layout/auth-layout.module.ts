@@ -7,8 +7,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { Ng9PasswordStrengthBarModule } from "ng9-password-strength-bar";
 import { LoginComponent } from "../../pages/login/login.component";
 import { RegisterComponent } from "../../pages/register/register.component";
-import { ErrorsComponent } from "src/app/pages/errors/errors.component";
-import { PasswordPatternDirective } from "src/app/directives/password-pattern.directive";
+import { PasswordPatternDirective } from "app/directives/password-pattern.directive";
+import { ErrorsComponent } from "app/pages/errors/errors.component";
 @NgModule({
   declarations: [
     LoginComponent,
@@ -23,7 +23,7 @@ import { PasswordPatternDirective } from "src/app/directives/password-pattern.di
     ReactiveFormsModule,
     Ng9PasswordStrengthBarModule,
 
-    // NgbModule
+    NgbModule,
   ],
 })
 export class AuthLayoutModule {}

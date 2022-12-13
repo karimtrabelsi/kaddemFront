@@ -1,0 +1,56 @@
+<div class="container mt-5">
+    <div class="row" *ngIf="isLoading == true">
+        <div class="col-12 text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p>chargement...</p>
+        </div>
+    </div>
+
+
+    <div class="row" *ngIf="isLoading == false" id="contentToConvert">
+
+        <div class="col-md-4  ">
+
+            <img src="https://www.lenouveleconomiste.fr/wp-content/uploads/2019/01/timing.jpg" class="w-100"
+                alt="">
+            <div class="row">
+            </div>
+
+        </div>
+        <div class="col-md-8  ">
+            <h1>universite numero :{{universite.id}} </h1>
+            <form #modelF="ngForm">
+                <label>Id universite </label>
+                <input type="number" class="form-control" name="id" [(ngModel)]="universite.id"
+                    #id="ngModel" disabled>
+        
+                    <label>Nom universite </label>
+                    <input type="text" class="form-control" name="nomUniv" [(ngModel)]="universite.nomUniv"
+                        #id="ngModel" >
+            
+
+            
+                <br>
+                <div class="row">
+                    <input type="submit" class="btn btn-primary" value="Update"
+                        (click)="Updateuniversite(modelF.value)">
+
+                </div>
+            </form>
+
+
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+</div>

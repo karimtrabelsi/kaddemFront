@@ -12,15 +12,27 @@ import { ReclamationComponent } from "app/pages/reclamation/reclamation.componen
 import { DepartmentComponent } from "app/pages/department/department.component";
 import { CourseComponent } from "app/pages/course/course.component";
 import { TrainingComponent } from "app/pages/training/training.component";
+import { AuthGuardGuard } from "app/core/auth-guard.guard";
+import { RoleGuardGuard } from "app/core/role-guard.guard";
 
 export const AdminLayoutRoutes: Routes = [
-  { path: "dashboard", component: DashboardComponent },
+  {
+    path: "dashboard",
+    component: DashboardComponent,
+  },
   { path: "user-profile", component: UserProfileComponent },
   { path: "tables", component: TablesComponent },
   { path: "icons", component: IconsComponent },
   { path: "maps", component: MapsComponent },
   { path: "users", component: UsersComponent },
-  { path: "contracts", component: ContractComponent },
+  {
+    path: "contracts",
+    component: ContractComponent,
+    canActivate: [RoleGuardGuard],
+    data: {
+      expectedRoles: ["Manager"],
+    },
+  },
   { path: "reclamations", component: ReclamationComponent },
   { path: "universities", component: UniversityComponent },
   { path: "departments", component: DepartmentComponent },

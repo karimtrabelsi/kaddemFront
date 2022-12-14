@@ -19,21 +19,31 @@ export class RegisterComponent implements OnInit {
     email: "",
     password: "",
     confirmPassword: "",
+    phoneNumber: "",
     acceptTerms: false,
   };
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = "";
-
+  role = ["mod", "user"];
   constructor(private authService: AuthService, private router: Router) {}
 
   ngOnInit() {}
 
   onSubmit(): void {
-    const { username, firstname, lastname, email, password } = this.form;
+    const { username, firstname, lastname, email, password, phoneNumber } =
+      this.form;
 
     this.authService
-      .register(username, firstname, lastname, email, password)
+      .register(
+        firstname,
+        lastname,
+        username,
+        email,
+        password,
+        phoneNumber,
+        this.role
+      )
       .subscribe({
         next: (data) => {
           console.log(data);
@@ -42,7 +52,11 @@ export class RegisterComponent implements OnInit {
           this.router.navigate(["/login"]);
         },
         error: (err) => {
+          console.log("dirabek");
+
           this.errorMessage = err.error.message;
+          console.log(this.errorMessage);
+
           this.isSignUpFailed = true;
         },
       });

@@ -4,6 +4,8 @@ import { EditComponent } from "./edit/edit.component";
 import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 import { User } from "app/models/user";
 import { AuthService } from "app/services/auth.service";
+import { DeleteComponent } from "./delete/delete.component";
+import { StorageService } from "app/services/storage.service";
 @Component({
   selector: "app-users",
   templateUrl: "./users.component.html",
@@ -23,26 +25,16 @@ export class UsersComponent implements OnInit {
     });
   }
 
-  open() {
-    this.modalService
-      .open(EditComponent, { ariaLabelledBy: "modal-basic-title" })
-      .result.then(
-        (result) => {
-          this.closeResult = `Closed with: ${result}`;
-        },
-        (reason) => {
-          this.closeResult = `Dismissed ${this.getDismissReason(reason)}`;
-        }
-      );
+  openDelete(user: any) {
+    const modalRef = this.modalService.open(DeleteComponent);
+    modalRef.componentInstance.user = user;
   }
 
-  private getDismissReason(reason: any): string {
-    if (reason === ModalDismissReasons.ESC) {
-      return "by pressing ESC";
-    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
-      return "by clicking on a backdrop";
-    } else {
-      return `with: ${reason}`;
-    }
+  delete(id: number) {
+    console.log(id);
+    this.service.deleteUser(id).subscribe((d) => {
+      //console.log(d);
+    });
+    //return this.service.deleteUser(id);
   }
 }

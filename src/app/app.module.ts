@@ -11,6 +11,7 @@ import { AuthLayoutComponent } from "./layouts/auth-layout/auth-layout.component
 import { AppRoutingModule } from "./app.routing";
 import { ComponentsModule } from "./components/components.module";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { DeleteComponent } from "./pages/users/delete/delete.component";
 
 @NgModule({
   imports: [
@@ -24,8 +25,14 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     NgbModule,
     RouterModule,
   ],
-  declarations: [AppComponent, AdminLayoutComponent, AuthLayoutComponent],
+  declarations: [
+    AppComponent,
+    AdminLayoutComponent,
+    AuthLayoutComponent,
+    DeleteComponent,
+  ],
   providers: [],
   bootstrap: [AppComponent],
+  exports: [],
 })
 export class AppModule {}

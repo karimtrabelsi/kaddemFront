@@ -1,0 +1,19 @@
+
+<form [formGroup]="DepForm"(ngSubmit)="SaveDep(DepForm.value)" >
+    <div class="mb-3">
+     
+      
+      <label for="" class="form-label">Nom Department</label>
+      <input formControlName="nomDepart" type="text" class="form-control" id="nomDepart">
+      
+
+<!--       
+      <label for="" class="form-label">dateFacture</label>
+      <input formControlName="dateFacture" type="date" class="form-control" id="dateFacture"> -->
+     
+
+
+     </div>
+
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>

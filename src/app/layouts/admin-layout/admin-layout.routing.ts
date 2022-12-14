@@ -7,7 +7,7 @@ import { UserProfileComponent } from "../../pages/user-profile/user-profile.comp
 import { TablesComponent } from "../../pages/tables/tables.component";
 import { UsersComponent } from "app/pages/users/users.component";
 import { ContractComponent } from "app/pages/contract/contract.component";
-import { UniversityComponent } from "app/pages/university/university.component";
+import { UniversiteComponent } from "app/pages/universite/universite.component";
 import { ReclamationComponent } from "app/pages/reclamation/reclamation.component";
 import { DepartmentComponent } from "app/pages/department/department.component";
 import { CourseComponent } from "app/pages/course/course.component";
@@ -15,11 +15,9 @@ import { TrainingComponent } from "app/pages/training/training.component";
 import { AuthGuardGuard } from "app/core/auth-guard.guard";
 import { RoleGuardGuard } from "app/core/role-guard.guard";
 
+
 export const AdminLayoutRoutes: Routes = [
-  {
-    path: "dashboard",
-    component: DashboardComponent,
-  },
+  { path: "dashboard", component: DashboardComponent },
   { path: "user-profile", component: UserProfileComponent },
   { path: "tables", component: TablesComponent },
   { path: "icons", component: IconsComponent },
@@ -34,7 +32,7 @@ export const AdminLayoutRoutes: Routes = [
     },
   },
   { path: "reclamations", component: ReclamationComponent },
-  { path: "universities", component: UniversityComponent },
+  { path: "universities", component: UniversiteComponent },
   { path: "departments", component: DepartmentComponent },
   { path: "courses", component: CourseComponent },
   { path: "trainings", component: TrainingComponent },

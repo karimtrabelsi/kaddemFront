@@ -1,3 +1,7 @@
+<app-sidebar></app-sidebar>
+<div class="main-content">
+  <!-- Top navbar -->
+  <app-navbar></app-navbar>
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
     <div class="header-body">
@@ -119,92 +123,18 @@
 <div class="container-fluid mt--7">
   <!-- Table -->
   <div class="row">
-    <div class="col">
-      <div class="card shadow">
+    <div class="col" style="width: 100%; height: 700px; overflow: auto;">
+      <div class="card shadow" >
         <div class="card-header border-0">
-          <h3 class="mb-0">Users</h3>
+          <h3 class="mb-0">University tables</h3>
         </div>
-        <div class="table-responsive">
-          <table class="table align-items-center table-flush">
-            <thead class="thead-light">
-              <tr>
-                <th scope="col">Username</th>
-                <th scope="col">First Name</th>
-                <th scope="col">Last Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Role</th>
-                <th scope="col"></th>
-              </tr>
-            </thead>
-            <tbody *ngFor="let u of listUsers">
-              <tr>
-                <th scope="row">
-                  <div class="media align-items-center">
-                    <a
-                      href="javascript:void(0)"
-                      class="avatar rounded-circle mr-3"
-                    >
-                      <img
-                        alt="Image placeholder"
-                        src="../assets/img/theme/bootstrap.jpg"
-                      />
-                    </a>
-                    <div class="media-body">
-                      <span class="mb-0 text-sm">{{ u.username }}</span>
-                    </div>
-                  </div>
-                </th>
-                <td>{{ u.firstName }}</td>
-                <td>
-                  {{ u.lastName }}
-                </td>
-                <td>
-                  {{ u.email }}
-                </td>
-                <td *ngFor="let r of u.roles">
-                  <span class="badge badge-pill badge-danger">
-                    <i class="bg-warning"></i> {{ r["name"] }}
-                  </span>
-                </td>
+        <div class="table-responsive" style="width: 100%; height: 100%; overflow: auto;">
+          <!-- Sidenav -->
 
-                <td class="text-right">
-                  <div ngbDropdown placement="bottom-right">
-                    <a
-                      class="btn btn-sm btn-icon-only text-light"
-                      ngbDropdownToggle
-                    >
-                      <i class="fas fa-ellipsis-v"></i>
-                    </a>
-                    <div
-                      ngbDropdownMenu
-                      class="dropdown-menu-right dropdown-menu-arrow"
-                    >
-                      <a
-                        class="dropdown-item"
-                        href="javascript:void(0)"
-                        (click)="open()"
-                        >Edit</a
-                      >
-<<<<<<< HEAD
-                      <a
-                        class="dropdown-item"
-                        href="javascript:void(0)"
-                        (click)="openDelete(u)"
-                        >Delete User</a
-=======
-                      <a class="dropdown-item" href="javascript:void(0)"
-                        >Another action</a
->>>>>>> remotes/origin/MalekIntegration
-                      >
-                      <a class="dropdown-item" href="javascript:void(0)"
-                        >Something else here</a
-                      >
-                    </div>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+  <!-- Pages -->
+  <router-outlet></router-outlet>
+  
+  
         </div>
         <div class="card-footer py-4">
           <nav aria-label="...">
@@ -239,31 +169,8 @@
     </div>
   </div>
   <!-- Dark table -->
-</div>
 
-<ng-template #content let-modal>
-  <div class="modal-header">
-    <h4 class="modal-title">Confirm Delete</h4>
-    <button
-      type="button"
-      class="close"
-      aria-label="Close"
-      (click)="modal.dismiss('Cross click')"
-    ></button>
-  </div>
-  <div class="modal-body">
-    <h2>Are you sure you want to delete this record.</h2>
-    <div class="border text-center">
-      <button data-dismiss="modal" class="btn btn-danger">Yes, Delete!</button>
-    </div>
-  </div>
-  <div class="modal-footer">
-    <button
-      type="button"
-      class="btn btn-outline-dark"
-      (click)="modal.close('Save click')"
-    >
-      Cancel
-    </button>
-  </div>
-</ng-template>
+<div class="container-fluid">
+  <app-footer></app-footer>
+</div>
+</div>

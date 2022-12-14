@@ -1,0 +1,67 @@
+<div class="container mt-5">
+    <div class="row" *ngIf="isLoading == true">
+        <div class="col-12 text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+            </div>
+            <p>chargement...</p>
+        </div>
+    </div>
+
+
+
+    <div class="row" *ngIf="isLoading == false">
+
+
+        <div class="col-md-4  ">
+
+            <img src="https://www.lenouveleconomiste.fr/wp-content/uploads/2019/01/timing.jpg" class="w-100"
+                alt="">
+            <div class="row">
+                <button class="btn btn-primary" style="margin-right: 15px; margin-bottom: 10px; margin-left: 50px;"
+                    [routerLink]="'/universite/UniversiteHome/getParent/'"> Back To Menu</button>
+            </div>
+
+        </div>
+        <div class="col-md-8  ">
+            <h1>Universite numero :{{universite.id}} </h1>
+            <table class="table" id="content" #content>
+                <thead>
+                    <tr>
+
+
+                        <th scope="col">nomUnivversite</th>
+                        <th scope="col">ID </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{universite.nomUniv }}</td>
+                        <td>{{universite.id}}</td>
+
+
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <div>
+                <button class="btn btn-success" style="margin-right: 15px;" (click)="SavePDF()">Download (PDF)</button>
+                <button class="btn btn-danger" style="margin-right: 15px;" (click)="Delete(universite.id)">
+                    Delete</button>
+                <button class="btn btn-primary" style="margin-right: 15px;" (click)="Update(universite.id)">
+                    Update</button>
+            </div>
+
+        </div>
+
+
+
+
+
+    </div>
+
+
+
+
+</div>

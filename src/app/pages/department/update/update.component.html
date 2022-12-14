@@ -1,0 +1,45 @@
+<div class="container mt-5">
+    <div class="row" *ngIf="isLoading == true">
+        <div class="col-12 text-center">
+            <div class="spinner-border" role="status">
+                <span class="visually-hidden">Loading...</span>
+              </div>
+            <p>chargement...</p>
+        </div>
+    </div>
+    
+
+    <div class="row" *ngIf="isLoading == false" id="contentToConvert">
+        <div class="col-md-8  ">
+          <h1>Department numero :{{department.idDepart}} </h1>
+          <form #modelF="ngForm">
+            <label>Id Department </label>
+            <input type="number" class="form-control" name="id" [(ngModel)]="department.idDepart" #id="ngModel" disabled>
+            
+            <label>nom Department</label>
+            <input type="text" class="form-control" [(ngModel)]="department.nomDepart" #description="ngModel" name="nomDepart" required #m="ngModel"  >
+            <div class="alert alert-danger" *ngIf="m.invalid && m.touched">
+             <div *ngIf="m.hasError('required')">This field is required</div>
+          </div>
+            
+             <br>
+             <div class="row">
+                <input type="submit" class="btn btn-primary" value="Update" (click)="UpdateDepartment(modelF.value)"> 
+
+             </div>
+        </form>
+        
+        
+            
+        </div>
+
+
+        
+        
+
+    </div>
+
+    
+
+    
+</div>

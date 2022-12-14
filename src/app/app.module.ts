@@ -12,6 +12,13 @@ import { AppRoutingModule } from "./app.routing";
 import { ComponentsModule } from "./components/components.module";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
 import { DeleteComponent } from "./pages/users/delete/delete.component";
+import { DepartmentComponent } from "./pages/department/department.component";
+import { CourseComponent } from "./pages/course/course.component";
+import { ContractComponent } from "./pages/contract/contract.component";
+import { ReclamationComponent } from "./pages/reclamation/reclamation.component";
+import { TrainingComponent } from './pages/training/training.component';
+import { UniversiteComponent } from './pages/universite/universite.component';
+
 
 @NgModule({
   imports: [
@@ -34,5 +41,16 @@ import { DeleteComponent } from "./pages/users/delete/delete.component";
   providers: [],
   bootstrap: [AppComponent],
   exports: [],
+    UniversiteComponent,
+    DepartmentComponent,
+    AdminLayoutComponent,
+    AuthLayoutComponent,
+    CourseComponent,
+    ContractComponent,
+    ReclamationComponent,
+    TrainingComponent,
+  ],
+  providers: [],
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

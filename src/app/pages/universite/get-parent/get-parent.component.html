@@ -1,0 +1,26 @@
+ <div>
+    <div>
+        <div class="d-grid gap-2 col-6 mx-auto">
+            <button class="btn btn-outline-danger" (click)="open(content)"  type="button">Add University</button>
+          </div>
+    
+    </div>
+    
+<div class="row movies " style="height: 220px; width:900px ; margin-top: 10px; margin-left:10px ;">
+<div class="col-md-3 col-sm-6" *ngFor="let li of ListUniversite let i=index;">
+<app-get-child [universite]="li" photoURL="https://www.lenouveleconomiste.fr/wp-content/uploads/2019/01/timing.jpg"  (notif)="executes($event)"></app-get-child>
+</div> 
+</div>
+</div>
+<ng-template #content let-modal>
+<div class="modal-header">
+<h4 class="modal-title" id="modal-basic-title">New University</h4>
+<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+<span aria-hidden="false">&times;</span>
+</button>
+</div>
+<div class="modal-body">
+<app-add></app-add>
+</div>
+
+</ng-template>

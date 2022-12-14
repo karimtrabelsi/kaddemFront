@@ -41,12 +41,6 @@ import { ReclamationComponent } from "app/pages/reclamation/reclamation.componen
     MapsComponent,
     UsersComponent,
     EditComponent,
-    UniversityComponent,
-    ContractComponent,
-    DepartmentComponent,
-    CourseComponent,
-    TrainingComponent,
-    ReclamationComponent,
   ],
 })
 export class AdminLayoutModule {}

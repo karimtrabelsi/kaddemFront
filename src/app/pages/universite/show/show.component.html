@@ -1,0 +1,28 @@
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">nomUniv</th>
+        <th scope="col"> - </th>
+        <th scope="col"> - </th>
+    
+       
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let li of ListUniversite let i=index;">
+        <th scope="row">{{li.id}}</th>
+        <td >{{li.nomUniv}}</td>
+
+        
+        
+
+        <td>  <button class="btn btn-primary" (click)="Delete(li.id)"> Delete</button></td>
+        <td>  <button class="btn btn-primary" (click)="Update(li.id)"> Update</button></td>
+        <!-- Ou bien 
+       <td>  <button class="btn btn-primary"[routerLink]="'/Invoice/InvoiceHome/update/'+li.idFacture"> Update</button></td>
+       
+      -->
+      </tr>
+    </tbody>
+  </table>

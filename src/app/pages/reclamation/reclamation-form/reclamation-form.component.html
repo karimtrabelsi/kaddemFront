@@ -1,0 +1,34 @@
+<div class="modal-header">
+<form [formGroup]="RecForm"(ngSubmit)="SaveRec(RecForm.value)">
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">x</button>
+ <h1> {{action}} Reclamation</h1>
+
+  <div class="form-group col-md-6">
+    <label for="" class="form-label">Type</label>
+    <select formControlName="type" type="text" class="form-control" id="type">
+      <option value="{{Reclamation.type}}" selected="selected">{{Reclamation.type}}</option>
+      <option value="Bug">Bug</option>
+      <option value="Login">Login</option>
+      <option value="Affectation">Affectation</option>
+      <option value="Financier">Financier</option>
+    </select>
+  </div>
+  <div class="form-group col-md-6">
+    <label for="" class="form-label">Description</label>
+    <input formControlName="description" type="text" class="form-control" id="description" value="{{Reclamation.description}}">
+  </div>
+  <div class="form-group col-md-6">
+    <label for="" class="form-label">Screenshot</label>
+    <input formControlName="screenshot" type="text" class="form-control" id="screenshot" value="{{Reclamation.screenshot}}">
+  </div>
+  <br>
+  <button class="btn btn-success" type="submit">
+    Save
+  </button>
+  
+  &nbsp;
+  <button type="reset" class="btn btn-warning">
+    Reset
+  </button>
+</form>
+</div>

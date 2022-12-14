@@ -17,7 +17,7 @@ export class ContratService {
     return this.http.get<Contrat[]>(this.uri + 'Contrat/getContrat');
   }
   addContrat(c: Contrat) {
-    return this.http.post(this.uri + 'Contrat/addContrat', c);
+    return this.http.post(this.uri + 'Contrat/affectContratToEtudiant/Ahmed/Manaa', c);
   }
 
   updateContrat(id:number ,data: Contrat): Observable<Contrat> {
@@ -31,4 +31,9 @@ export class ContratService {
   deleteContrat(id: number): Observable<Object> {
     return this.http.delete(this.uri + `Contrat/delContrat/${id}`);
   }
+
+  unaffectContract(id: number,contrat: Contrat): Observable<Object> {
+    return this.http.put(this.uri + `Contrat/unaffectContrat/${id}`,contrat);
+  }
+
 }

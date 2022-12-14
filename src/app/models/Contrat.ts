@@ -1,4 +1,5 @@
 import { Specialite } from "./Specialite";
+import { User } from "./user";
 
 export class Contrat {
     idContrat: number;
@@ -7,4 +8,5 @@ export class Contrat {
     archive: boolean;
     specialite: Specialite;
     montant : number;
+    user : User;
 }

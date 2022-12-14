@@ -54,7 +54,6 @@ export class ReclamationFormComponent implements OnInit {
       //update
       this.action = 'Update';
       this.ReclamationService.getReclamationById(id).subscribe((data: Reclamation) => {
-        console.log(data);
         
         this.Reclamation = data;
       });
@@ -75,10 +74,12 @@ export class ReclamationFormComponent implements OnInit {
     if (this.action == 'Update') {
       this.ReclamationService
         .updateReclamation(this.Reclamation.idReclamation,this.Reclamation)
-        .subscribe(data =>{this.activeModal.close()})
+        .subscribe(data =>{this.activeModal.close()});
+        location.reload();
     } else {
       this.ReclamationService.addReclamation(this.Reclamation).subscribe(result=>{this.activeModal.close()
       });
+      location.reload();
     }
   }
 
@@ -102,6 +103,9 @@ export class ReclamationFormComponent implements OnInit {
   goToReclamationtList() {
     this.route.navigate(['/reclamations/ReclamationsList']);
   }
+
+
+  
 
   get activeModal() {
     return this._NgbActiveModal;

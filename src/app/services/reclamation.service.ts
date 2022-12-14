@@ -26,6 +26,10 @@ export class ReclamationService {
     return this.http.put<Reclamation>(this.uri + `Reclamation/updateReclamation/${id}`, Reclamation);
   }
 
+  confirmReclamation(id:number,Reclamation: Reclamation): Observable<Reclamation> {
+    return this.http.put<Reclamation>(this.uri + `Reclamation/confirmReclamation/${id}`, Reclamation);
+  }
+
   getReclamationById(id: number) {
     return this.http.get<Reclamation>(this.uri + `Reclamation/getone/${id}`);
   }

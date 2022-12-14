@@ -135,22 +135,22 @@
                 <th scope="col">Date Reclamation</th>
                 <th scope="col">Description</th>
                 <th scope="col">Screenshot</th>
-                <th scope="col">Type</th>
+                <th scope="col">Type </th>
                 <th scope="col">Actions</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let reclamation of ReclamationList">
                 
-                <td><span class="badge badge-dot mr-4">
-                  <i class="bg-warning"></i> {{reclamation.DateReclamation }}
-                </span></td>
-                <td>{{reclamation.description}}
+                <td [style.color]="getColor(reclamation.statut)"><span class="badge badge-dot mr-4">
+                  <i class="bg-warning"></i>{{reclamation.DateReclamation }}
+                  </span></td>
+                <td [style.color]="getColor(reclamation.statut)">{{reclamation.description}}
                 </td>
-                <td>{{reclamation.screenshot}}</td>
-                <td>{{reclamation.type}}</td>
+                <td [style.color]="getColor(reclamation.statut)">{{reclamation.screenshot}}</td>
+                <td [style.color]="getColor(reclamation.statut)">{{reclamation.type}}</td>
                 <td class="d-flex align-items-center">
-                  <button class="btn btn-sm btn-danger" (click)="delete(reclamation.idReclamation)" >
+                  <button class="btn btn-sm btn-danger" (click)="openDelete(reclamation.idReclamation)" >
                       Delete
                   </button>
                   &nbsp;
@@ -160,6 +160,10 @@
                   &nbsp;
                   <a class="btn btn-sm btn-info" (click)="openDetail(reclamation.idReclamation)" >
                       Details  
+                  </a>
+                  &nbsp;
+                  <a class="btn btn-sm btn-warning" (click)="confirmReclamation(reclamation.idReclamation)" >
+                      Confirm  
                   </a>
                   &nbsp;
                   <a class="btn btn-sm btn-info" (click)="makePDF()" >

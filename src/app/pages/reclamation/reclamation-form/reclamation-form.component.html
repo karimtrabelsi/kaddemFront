@@ -1,8 +1,9 @@
 <div class="modal-header">
-<form [formGroup]="RecForm"(ngSubmit)="SaveRec(RecForm.value)">
   <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">x</button>
+</div>
+<div class="modal-body">
+<form [formGroup]="RecForm"(ngSubmit)="SaveRec(RecForm.value)">
  <h1> {{action}} Reclamation</h1>
-
   <div class="form-group col-md-6">
     <label for="" class="form-label">Type</label>
     <select formControlName="type" type="text" class="form-control" id="type">

@@ -26,15 +26,14 @@ export class ContractFormComponent implements OnInit {
   contratList: Contrat[];
   currentDate = new Date();
   mindate: any;
+  maxdate:any;
   @Input() id:any;
   ngOnInit(): void {
    
-    console.log(this.id);
     
     this.mindate = this.datePipe.transform(this.currentDate, 'yyyy-MM-dd');
     this.contrat = new Contrat();
     let id = this.id;
-    console.log(id);
     
     if (id != null) {
       //update
@@ -64,7 +63,8 @@ export class ContractFormComponent implements OnInit {
         
     } else {
       this.contratService.addContrat(this.contrat).subscribe(result=>{this.activeModal.close()
-      });
+      })
+      location.reload();
     }
   }
 

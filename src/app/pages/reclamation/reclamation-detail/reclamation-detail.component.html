@@ -1,25 +1,25 @@
 <div class="modal-header">
-    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')"></button>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss('Cross click')">x</button>
   </div>
 <div>
     <ul>
         <li>
-            {{Reclamation.DateReclamation}}
+           Date Reclamation : {{Reclamation.DateReclamation}}
         </li>
         <li>
-            {{Reclamation.description}}
+           Description : {{Reclamation.description}}
 
         </li>
         <li>
-            {{Reclamation.screenshot}}
+           Screenshot path : {{Reclamation.screenshot}}
 
         </li>
         <li>
-            {{Reclamation.statut}}
+           Status : {{Reclamation.statut}}
 
         </li>
         <li>
-            {{Reclamation.type}}
+           Type : {{Reclamation.type}}
 
         </li>
     </ul>

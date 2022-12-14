@@ -4,6 +4,7 @@ import { Contrat } from 'app/models/Contrat';
 import { ContratService } from 'app/services/contrat.service';
 import { ContractFormComponent } from './contract-form/contract-form.component';
 import { ContractDetailComponent } from './contract-detail/contract-detail.component';
+import { ContractDeleteComponent } from './contract-delete/contract-delete.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
@@ -43,9 +44,7 @@ export class ContractComponent implements OnInit {
       location.reload();
     });
   }
-  //updateContract
-  update() {}
-
+  
   //generate pdf
   makePDF() {
     
@@ -68,6 +67,22 @@ export class ContractComponent implements OnInit {
 		modalRef.componentInstance.id = id;
 	}
 
-  
+  openDelete(id:any) {
+		const modalRef = this.modalService.open(ContractDeleteComponent);
+		modalRef.componentInstance.id = id;
+	}
+
+  unaffectContract(id:number,data:Contrat){
+    this.contratService.unaffectContract(id,data).subscribe(data =>{location.reload();})
+  }
+
+  getColor(archive) { 
+    switch (archive) {
+      case false:
+        return 'green';
+      case true:
+        return 'red';
+    }
+  }
 
 }

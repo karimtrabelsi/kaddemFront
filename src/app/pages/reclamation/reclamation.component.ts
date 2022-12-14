@@ -4,7 +4,7 @@ import { Reclamation } from 'app/models/Reclamation';
 import { ReclamationService } from 'app/services/reclamation.service';
 import { ReclamationFormComponent } from './reclamation-form/reclamation-form.component';
 import { ReclamationDetailComponent } from './reclamation-detail/reclamation-detail.component';
-import { ReclamationListComponent } from './reclamation-list/reclamation-list.component';
+import { ReclamationDeleteComponent } from './reclamation-delete/reclamation-delete.component';
 import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
@@ -44,6 +44,10 @@ export class ReclamationComponent implements OnInit {
       location.reload();
     });
   }
+
+  confirmReclamation(id:number,data:Reclamation){
+    this.ReclamationService.confirmReclamation(id,data).subscribe(data =>{location.reload();})
+  }
   //updateContract
   update() {}
 
@@ -67,6 +71,20 @@ export class ReclamationComponent implements OnInit {
 		const modalRef = this.modalService.open(ReclamationDetailComponent);
 		modalRef.componentInstance.id = id;
 	}
+
+  openDelete(id:any) {
+		const modalRef = this.modalService.open(ReclamationDeleteComponent);
+		modalRef.componentInstance.id = id;
+	}
+
+  getColor(statut) { 
+    switch (statut) {
+      case true:
+        return 'green';
+      case false:
+        return 'red';
+    }
+  }
 
 
 }

@@ -3,10 +3,10 @@ import { RouterModule, Routes } from '@angular/router';
 import { ReclamationComponent } from './reclamation.component';
 import { ReclamationFormComponent } from './reclamation-form/reclamation-form.component';
 import { ReclamationDetailComponent } from './reclamation-detail/reclamation-detail.component';
-import { ReclamationListComponent } from './reclamation-list/reclamation-list.component';
+import { ReclamationDeleteComponent } from './reclamation-delete/reclamation-delete.component';
 
 const routes: Routes = [{ path: '', component: ReclamationComponent },
-{ path: 'ReclamationsList', component: ReclamationListComponent },
+{ path: 'ReclamationsList', component: ReclamationDeleteComponent },
 { path: 'addReclamation', component: ReclamationFormComponent },
 { path: 'updateReclamation/:id', component: ReclamationFormComponent },
 { path: ':id', component: ReclamationDetailComponent },];

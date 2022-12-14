@@ -132,33 +132,37 @@
               <table class="table align-items-center table-flush">
             <thead class="thead-light">
               <tr>
-                <th scope="col">Date Début</th>
-                <th scope="col">Date Fin</th>
-                <th scope="col">Specialité</th>
-                <th scope="col">Montant</th>
-                <th scope="col">action</th>
+                <th scope="col">Start Date</th>
+                <th scope="col">End Date</th>
+                <th scope="col">Speciality</th>
+                <th scope="col">Amount</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
               <tr *ngFor="let contrat of contratList">
                 
-                <td><span class="badge badge-dot mr-4">
-                  <i class="bg-warning"></i> {{contrat.dateDebutContrat }}
+                <td [style.color]="getColor(contrat.archive)"><span class="badge badge-dot mr-4">
+                  <i class="bg-warning"></i>{{contrat.dateDebutContrat }}
                 </span></td>
-                <td>
+                <td [style.color]="getColor(contrat.archive)">
                   <span class="badge badge-dot mr-4">
-                    <i class="bg-warning"></i> {{contrat.dateFinContrat}}
+                    <i class="bg-warning"></i>{{contrat.dateFinContrat}}
                   </span>
                 </td>
-                <td>{{contrat.specialite}}</td>
-                <td>{{contrat.montant}}</td>
+                <td [style.color]="getColor(contrat.archive)">{{contrat.specialite}}</td>
+                <td [style.color]="getColor(contrat.archive)">{{contrat.montant}}</td>
                 <td class="d-flex align-items-center">
-                  <button class="btn btn-sm btn-danger" (click)="delete(contrat.idContrat)" >
+                  <button class="btn btn-sm btn-danger" (click)="openDelete(contrat.idContrat)" >
                       delete
                   </button>
                   &nbsp;
                   <a class="btn btn-sm btn-warning" (click)="open(contrat.idContrat)" >
                       update  
+                  </a>
+                  &nbsp;
+                  <a class="btn btn-sm btn-warning" (click)="unaffectContract(contrat.idContrat)" >
+                      Unaffect  
                   </a>
                   &nbsp;
                   <a class="btn btn-sm btn-info" (click)="openDetail(contrat.idContrat)" >

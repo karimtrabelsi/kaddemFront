@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { ContractsRoutingModule } from './contracts-routing.module';
 import { ContractFormComponent } from './contract-form/contract-form.component';
 import { ContractDetailComponent } from './contract-detail/contract-detail.component';
-import { ContractListComponent } from './contract-list/contract-list.component';
+import { ContractDeleteComponent } from './contract-delete/contract-delete.component';
 import { FormsModule } from '@angular/forms';
 
 
@@ -12,7 +12,7 @@ import { FormsModule } from '@angular/forms';
   declarations: [
     ContractFormComponent,
     ContractDetailComponent,
-    ContractListComponent,
+    ContractDeleteComponent,
   ],
   imports: [CommonModule, ContractsRoutingModule, FormsModule],
 })

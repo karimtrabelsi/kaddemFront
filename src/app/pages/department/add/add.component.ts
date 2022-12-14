@@ -44,10 +44,10 @@ export class AddComponent implements OnInit {
      
       this.service.addDepartment(data).subscribe(()=>{},(error)=>{console.log(error);})
       this.router.navigateByUrl("department/DepartmentHome/getParent");
-   
+      this.reloadPage();
     }
   
-  
+    reloadPage() { let currentUrl = this.router.url; this.router.routeReuseStrategy.shouldReuseRoute = () => false; this.router.onSameUrlNavigation = 'reload'; this.router.navigate([currentUrl]); }
  
 	
   }

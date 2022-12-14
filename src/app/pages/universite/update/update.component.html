@@ -28,7 +28,10 @@
         
                     <label>Nom universite </label>
                     <input type="text" class="form-control" name="nomUniv" [(ngModel)]="universite.nomUniv"
-                        #id="ngModel" >
+                        #id="ngModel" required #n="ngModel" >
+                        <div class="alert alert-danger" *ngIf="n.invalid && n.touched">
+                            <div *ngIf="n.hasError('required')">This field is required</div>
+                         </div>
             
 
             

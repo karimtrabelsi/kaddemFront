@@ -10,6 +10,7 @@ import { GetDetailsComponent } from './get-details/get-details.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UniversiteComponent } from './universite.component';
 import { UniversiteRoutingModule } from './universite-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { UniversiteRoutingModule } from './universite-routing.module';
     GetDetailsComponent
   ],
   imports: [
+    NgbModule,
     CommonModule,
     UniversiteRoutingModule,
     ReactiveFormsModule,FormsModule

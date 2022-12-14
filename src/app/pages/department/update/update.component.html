@@ -10,13 +10,6 @@
     
 
     <div class="row" *ngIf="isLoading == false" id="contentToConvert">
-       
-        <div class="col-md-4  ">
-           
-             <div class="row">
-            </div>
-
-            </div>
         <div class="col-md-8  ">
           <h1>Department numero :{{department.idDepart}} </h1>
           <form #modelF="ngForm">
@@ -24,12 +17,10 @@
             <input type="number" class="form-control" name="id" [(ngModel)]="department.idDepart" #id="ngModel" disabled>
             
             <label>nom Department</label>
-            <input type="text" class="form-control" [(ngModel)]="department.nomDepart" #description="ngModel" name="nomDepart"  >
-            
-           
-            
-            
-        
+            <input type="text" class="form-control" [(ngModel)]="department.nomDepart" #description="ngModel" name="nomDepart" required #m="ngModel"  >
+            <div class="alert alert-danger" *ngIf="m.invalid && m.touched">
+             <div *ngIf="m.hasError('required')">This field is required</div>
+          </div>
             
              <br>
              <div class="row">

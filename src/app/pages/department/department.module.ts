@@ -9,6 +9,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { GetDetailsComponent } from './get-details/get-details.component';
 import { GetParentComponent } from './get-parent/get-parent.component';
 import { GetChildComponent } from './get-child/get-child.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { GetChildComponent } from './get-child/get-child.component';
     GetChildComponent
   ],
   imports: [
+    NgbModule,
     CommonModule,
     ReactiveFormsModule,FormsModule,
     DepartmentRoutingModule

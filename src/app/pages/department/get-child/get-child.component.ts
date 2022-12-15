@@ -12,7 +12,7 @@ export class GetChildComponent implements OnInit {
   @Input() department!:Department;
   @Input() photoURL:any;
 
-  @Output() notif= new EventEmitter<any>();
+  @Output() notif= new EventEmitter<any>(); //notif pour le parent
   
   @ViewChild(GetParentComponent) c!:GetChildComponent;
   

@@ -6,7 +6,7 @@
     
     </div>
     
-<div class="row movies " style="height: 220px; width:900px ; margin-top: 10px; margin-left:10px ;">
+<div class="row movies " style="height: 600px; width:900px ; margin-top: 10px; margin-left:10px ;">
 <div class="col-md-3 col-sm-6" *ngFor="let li of ListUniversite let i=index;">
 <app-get-child [universite]="li" photoURL="https://www.lenouveleconomiste.fr/wp-content/uploads/2019/01/timing.jpg"  (notif)="executes($event)"></app-get-child>
 </div> 

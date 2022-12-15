@@ -1,18 +1,29 @@
-
 <form [formGroup]="ConstatForm"(ngSubmit)="SaveConstat(ConstatForm.value)" >
-    <div class="mb-3">
-     
-      <label for="" class="form-label">Nom Universite</label>
-      <input formControlName="nomUniv" type="text" class="form-control" id="nomUniv">
-    
+  <div class="mb-3">
+    <label for="" class="form-label">Nom Universite</label>
+    <input formControlName="nomUniv" type="text"
+class="form-control" id="nomUniv" [ngClass]="{ 'is-invalid': submitted
+&& ConstatForm.controls['nomUniv'].errors }" >
+    <div *ngIf="submitted && ConstatForm.controls['nomUniv'].errors"
+class="invalid-feedback">
+      <div *ngIf="ConstatForm.controls['nomUniv'].errors['required']">Username
+is required</div>
+      <div *ngIf="ConstatForm.controls['nomUniv'].errors['minlength']">
+        Username must be at least 6 characters
+      </div>
+      <div *ngIf="ConstatForm.controls['nomUniv'].errors['maxlength']">
+        Username must not exceed 20 characters
+      </div>
+    </div>
 
-<!--       
-      <label for="" class="form-label">dateFacture</label>
-      <input formControlName="dateFacture" type="date" class="form-control" id="dateFacture"> -->
-     
+<!--
+    <label for="" class="form-label">dateFacture</label>
+    <input formControlName="dateFacture" type="date"
+class="form-control" id="dateFacture"> -->
 
 
-     </div>
 
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+   </div>
+
+  <button type="submit"   class="btn btn-primary">Submit</button>
+</form>

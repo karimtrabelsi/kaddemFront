@@ -3,10 +3,21 @@
     <div class="mb-3">
      
       
-      <label for="" class="form-label">Nom Department</label>
-      <input formControlName="nomDepart" type="text" class="form-control" id="nomDepart">
-      
-
+      <label for="" class="form-label">Nom Department</label>      
+      <input formControlName="nomDepart" type="text"
+      class="form-control" id="nomDepart" [ngClass]="{ 'is-invalid': submitted
+      && DepForm.controls['nomDepart'].errors }" >
+            <div *ngIf="submitted && DepForm.controls['nomDepart'].errors"
+      class="invalid-feedback">
+              <div *ngIf="DepForm.controls['nomDepart'].errors['required']">Username
+      is required</div>
+              <div *ngIf="DepForm.controls['nomDepart'].errors['minlength']">
+                Username must be at least 6 characters
+              </div>
+              <div *ngIf="DepForm.controls['nomDepart'].errors['maxlength']">
+                Username must not exceed 20 characters
+              </div>
+            </div>
 <!--       
       <label for="" class="form-label">dateFacture</label>
       <input formControlName="dateFacture" type="date" class="form-control" id="dateFacture"> -->
